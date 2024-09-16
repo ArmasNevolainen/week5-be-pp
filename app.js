@@ -1,3 +1,4 @@
+const connectDB = require("./config/db");
 const express = require("express");
 const app = express();
 const tourRouter = require("./routes/tourRouter");
@@ -6,6 +7,7 @@ const { unknownEndpoint } = require("./middleware/customMiddleware");
 
 const morgan = require("morgan");
 app.use(morgan("dev"));
+connectDB();
 
 // Middleware to parse JSON
 app.use(express.json());
